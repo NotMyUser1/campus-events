@@ -1,0 +1,52 @@
+header {
+    height: 6rem;
+    font-size: 2rem;
+    background-color: var(--foreground-color);
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    width: 100vw;
+    z-index: 1000;
+    box-shadow: var(--foreground-color) 0 0 10px;
+}
+
+.End > .icon-button{
+    justify-content: right;
+}
+
+.header-filler {
+    height: 6rem;
+    width: 100%;
+}
+
+.Logo {
+    width: 50vw;
+    max-height: 6rem;
+    object-fit: contain;
+}
+
+.header-visible {
+    top: 0;
+    transition: top 0.4s ease-out;
+}
+
+.header-hidden {
+    top: -7rem;
+    transition: top 1s ease-out;
+}
+
+@media (max-width: 850px) {
+    header {
+        padding: 0.5rem 0;
+        height: 4rem;
+    }
+    .header-filler {
+        height: 4rem;
+    }
+    .Logo {
+        max-height: 4rem;
+    }
+}

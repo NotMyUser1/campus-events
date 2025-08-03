@@ -1,0 +1,32 @@
+.icon-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background: none;
+    height: 100%;
+    color: var(--backgroud-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: gap 0.2s;
+    white-space: nowrap;
+    width: auto;
+    object-fit: contain;
+
+
+}
+
+.icon-button-label {
+    font-size: 2rem;
+}
+
+@media (max-width: 500px) {
+    .icon-button {
+        gap: 0.2rem;
+        padding: 0.3rem 0.5rem;
+    }
+    .icon-button-label {
+        display: none;
+    }
+}
