@@ -2,6 +2,7 @@
 import {useEffect, useState} from "react";
 import './Header.css'
 import MainTitle from "/public/menu.svg?react";
+import Logo from "/public/dragon.svg?react";
 import IconButton from "../IconButton/IconButton.tsx";
 
 const Header = () => {
@@ -22,11 +23,19 @@ const Header = () => {
     return (
         <>
             <header className={visible ? "header-visible" : "header-hidden"}>
-                <IconButton icon={<MainTitle height="100%" width="100%" />} label={""} onClick={() => {}}/>
-                <img className="Logo"
-                     src="https://mediatool.mitegro.de/DimensionImages/12411/12411156_MZ.jpg" alt={"alt"}/>
-                <IconButton icon={<MainTitle height="100%" width="100%"/>} label={""} onClick={() => {}}/>
-                <IconButton icon={<MainTitle height="100%" width="100%"/>} label={"Sign In"} onClick={() => {}}/>
+                <div className="box">
+                    <IconButton icon={<MainTitle height="100%" width="100%"/>} label={""} onClick={() => {
+                    }}/>
+                    <Logo className="Logo" />
+                    <div className="EndNav">
+                        <IconButton icon={<MainTitle height="100%" width="100%"/>} label={""} onClick={() => {
+                        }}/>
+                    </div>
+                    <IconButton icon={<MainTitle height="100%" width="100%"/>} label={"Sign In"} onClick={() => {
+                    }}/>
+
+
+                </div>
             </header>
             <div className="header-filler"></div>
         </>
