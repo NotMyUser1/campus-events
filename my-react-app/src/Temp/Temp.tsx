@@ -1,10 +1,11 @@
-const Temp = () => {
+import './Temp.css'
+
+export default function Temp(){
     console.log("Temp component rendered");
     return (
-        <>
+        <div className="Temp">
             <p>Das Überlappen der Komponenten Header und Temp kann daran liegen, dass im CSS keine Positionierung oder kein Abstand definiert ist. Standardmäßig haben Elemente die Position static, und ohne zusätzliche Styles können sie sich überlappen, wenn z. B. negative Margins, absolute Positionierung oder fehlende Höhenangaben verwendet werden.Das Überlappen der Komponenten Header und Temp kann daran liegen, dass im CSS keine Positionierung oder kein Abstand definiert ist. Standardmäßig haben Elemente die Position static, und ohne zusätzliche Styles können sie sich überlappen, wenn z. B. negative Margins, absolute Positionierung oder fehlende Höhenangaben verwendet werden.Das Überlappen der Komponenten Header und Temp kann daran liegen, dass im CSS keine Positionierung oder kein Abstand definiert ist. Standardmäßig haben Elemente die Position static, und ohne zusätzliche Styles können sie sich überlappen, wenn z. B. negative Margins, absolute Positionierung oder fehlende Höhenangaben verwendet werden.Das Überlappen der Komponenten Header und Temp kann daran liegen, dass im CSS keine Positionierung oder kein Abstand definiert ist. Standardmäßig haben Elemente die Position static, und ohne zusätzliche Styles können sie sich überlappen, wenn z. B. negative Margins, absolute Positionierung oder fehlende Höhenangaben verwendet werden.Das Überlappen der Komponenten Header und Temp kann daran liegen, dass im CSS keine Positionierung oder kein Abstand definiert ist. Standardmäßig haben Elemente die Position static, und ohne zusätzliche Styles können sie sich überlappen, wenn z. B. negative Margins, absolute Positionierung oder fehlende Höhenangaben verwendet werden.Das Überlappen der Komponenten Header und Temp kann daran liegen, dass im CSS keine Positionierung oder kein Abstand definiert ist. Standardmäßig haben Elemente die Position static, und ohne zusätzliche Styles können sie sich überlappen, wenn z. B. negative Margins, absolute Positionierung oder fehlende Höhenangaben verwendet werden.Das Überlappen der Komponenten Header und Temp kann daran liegen, dass im CSS keine Positionierung oder kein Abstand definiert ist. Standardmäßig haben Elemente die Position static, und ohne zusätzliche Styles können sie sich überlappen, wenn z. B. negative Margins, absolute Positionierung oder fehlende Höhenangaben verwendet werden.Das Überlappen der Komponenten Header und Temp kann daran liegen, dass im CSS keine Positionierung oder kein Abstand definiert ist. Standardmäßig haben Elemente die Position static, und ohne zusätzliche Styles können sie sich überlappen, wenn z. B. negative Margins, absolute Positionierung oder fehlende Höhenangaben verwendet werden.dfha</p>
-        </>
+        </div>
 
     )
 }
-export default Temp

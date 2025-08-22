@@ -1,33 +1,44 @@
 .icon-button {
-    display: inline-flex;
-    align-items: center;
+    display: flex;
     gap: 0.5rem;
     padding: 0.4rem 0.8rem;
     background: none;
     height: 100%;
-    color: var(--backgroud-color);
+    color: var(--primary-text-color);
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: gap 0.2s;
     white-space: nowrap;
-    width: auto;
-    object-fit: contain;
+}
 
+.icon-button-label {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+@keyframes logo-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.Sun:hover{
+    animation: logo-spin infinite 10s linear;
+}
+.MenuIcon {
+    transition: transform 0.5s;
+}
+.MenuIcon:hover{
+    transform: scale(1.2);
 }
 
 .icon-button:hover {
    background: rgba(0,0,0,0.1);
 }
 
-.icon-button-label {
-    font-size: 2rem;
-}
-
 @media (max-width: 670px) {
     .icon-button {
-        gap: 0.2rem;
-        padding: 0.3rem 0.5rem;
+        padding: 0.4rem 0.4rem;
     }
     .icon-button-label {
         display: none;

@@ -1,13 +1,20 @@
+:root {
+    --header-height: 4.25rem;
+}
+
 header {
-    height: 6rem;
-    font-size: 2rem;
-    background-color: var(--foreground-color);
     top: 0;
+    height: var(--header-height);
+    background-color: var(--foreground-color);
     display: block;
     position: fixed;
-    width: 100vw;
+    width: 100%;
     z-index: 1000;
     box-shadow: var(--foreground-color) 0 0 10px;
+}
+
+.header-filler {
+    height: var(--header-height);
 }
 
 .box {
@@ -17,35 +24,37 @@ header {
 
 .EndNav {
     margin-left: auto;
-    display: flex;
-    align-items: end;
-    flex-direction: column-reverse;
-}
-
-.header-filler {
-    height: 6rem;
 }
 
 .Logo {
-    width: auto;
+    width: min-content;
     max-height: 100%;
 }
 
 .header-visible {
-    top: 0;
     transition: top 0.4s ease-out;
 }
 
-.header-hidden {
-    top: -7rem;
-    transition: top 1s ease-out;
+@media (max-width: 485px) {
+    :root {
+        --header-height: 14vw;
+    }
 }
 
-@media (max-width: 850px) {
-    header {
-        height: 4rem;
+@media (prefers-reduced-motion: no-preference) {
+    .header-hidden {
+        top: calc(-1*  var(--header-height) - 10px);
+        transition: top 1s ease-out;
     }
-    .header-filler {
-        height: 4rem;
-    }
+}
+.Scene {
+    perspective: 800px;
+}
+.box > .icon-button:nth-of-type(2):hover .Door{
+    transform: rotate3d(0, -1, 0, 88deg) scale(2, 1);
+    box-shadow: 0 4px 8px -5px black;
+}
+.Door {
+    transition: transform 0.5s;
+    transform-origin: right;
 }
