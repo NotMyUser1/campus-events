@@ -30,9 +30,7 @@ export default function Header() {
                                 onClick={() => {
                                 }}/>
                     <Logo className="Logo" color="var(--button-background-color)"/>
-                    <div className="EndNav">
                         <ThemeButton/>
-                    </div>
                     <IconButton icon={<div className="Scene"><Door className="Door" height="100%" width="100%"/></div>}
                                 label={"Sign In"} onClick={() => {
                                 }}/>

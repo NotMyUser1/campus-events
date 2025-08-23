@@ -22,12 +22,12 @@ header {
     height: 100%;
 }
 
-.EndNav {
+.box > .icon-button:nth-of-type(2) {
     margin-left: auto;
 }
 
 .Logo {
-    width: min-content;
+    width: auto;
     max-height: 100%;
 }
 
@@ -43,7 +43,7 @@ header {
 
 @media (prefers-reduced-motion: no-preference) {
     .header-hidden {
-        top: calc(-1*  var(--header-height) - 10px);
+        top: calc(-1 * var(--header-height) - 10px);
         transition: top 1s ease-out;
     }
 }

@@ -5,11 +5,6 @@ export default function ThemeButton() {
     const preference = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const [isDark, setIsDark] = useLocalStorage("isDark", preference);
 
-    function handleClick() {
-        const newTheme = isDark ? "light" : "dark";
-        document.documentElement.setAttribute("data-theme", newTheme);
-        setIsDark(!isDark);
-    }
     if (isDark) {
         document.documentElement.setAttribute("data-theme", "dark");
     } else {
@@ -17,7 +12,7 @@ export default function ThemeButton() {
     }
 
     return (
-        <button className="icon-button" onClick={handleClick}>
+        <button className="icon-button" onClick={() => setIsDark(!isDark)}>
             {isDark? <Sun className="Sun" height="100%" width="100%"/>
                 : <Moon height="100%" width="100%" /> }
         </button>
