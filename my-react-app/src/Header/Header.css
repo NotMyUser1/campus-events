@@ -50,10 +50,14 @@ header {
 .Scene {
     perspective: 800px;
 }
-.box > .icon-button:nth-of-type(2):hover .Door{
-    transform: rotate3d(0, -1, 0, 88deg) scale(2, 1);
-    box-shadow: 0 4px 8px -5px black;
+
+@media (prefers-reduced-motion: no-preference) {
+    .box > .icon-button:nth-of-type(3):hover .Door {
+        transform: rotate3d(0, -1, 0, 88deg) scale(2, 1);
+        box-shadow: 0 4px 8px -5px black;
+    }
 }
+
 .Door {
     transition: transform 0.5s;
     transform-origin: right;

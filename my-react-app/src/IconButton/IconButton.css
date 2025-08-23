@@ -28,8 +28,11 @@
 .MenuIcon {
     transition: transform 0.5s;
 }
-.MenuIcon:hover{
-    transform: scale(1.2);
+
+@media (prefers-reduced-motion: no-preference) {
+    .MenuIcon:hover {
+        transform: scale(1.2);
+    }
 }
 
 .icon-button:hover {
