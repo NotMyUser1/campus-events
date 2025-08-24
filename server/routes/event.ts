@@ -1,54 +1,12 @@
 import express from "express";
-import { Request, Response } from "express";
-
+import {Request, Response} from "express";
 import Event from "../models/eventModel";
 
 const router = express.Router();
+const BASE_IMAGE_URL = process.env.BASE_IMAGE_URL || 'http://localhost:3000/img/';
 
-router.get("/", async (req, res) => {
-    const query: any = {};
-
-    // Date-Filter
-    if (req.query.from || req.query.to) {
-        query.date = {};
-        if (req.query.from) {
-            const fromDate = new Date(req.query.from as string);
-            if (isNaN(fromDate.getTime())) {
-                return res.sendStatus(400);
-            }
-            query.date.$gte = fromDate;
-        }
-        if (req.query.to) {
-            const toDate = new Date(req.query.to as string);
-            if (isNaN(toDate.getTime())) {
-                return res.sendStatus(400);
-            }
-            query.date.$lte = toDate;
-        }
-    }
-
-    // Tags-Filter
-    if (req.query.tags) {
-        let tags: string[] = [];
-        if (Array.isArray(req.query.tags)) {
-            tags = req.query.tags as string[];
-        } else if (typeof req.query.tags === "string") {
-            tags = (req.query.tags as string).split(",");
-        }
-        if (tags.length > 0) {
-            query.tags = { $all: tags };
-        }
-    }
-    console.log(req.query);
-    console.log(query);
-
-    try {
-        const events = await Event.find(query);
-        res.json(events);
-    } catch (error : any) {
-        console.error('Failed to get all events...', error);
-        res.sendStatus(500);
-    }
+router.get("/", getEvents, (req, res) => {
+    res.send(res.locals.eventArray);
 });
 
 router.get("/:id", getEvent, (req, res) => {
@@ -61,12 +19,14 @@ router.post("/", async (req, res) => {
         description: req.body.description,
         location: req.body.location,
         date: req.body.date,
+        imageUrl: req.body.imageUrl,
+        tags: req.body.tags
     });
     try {
         console.log('Creating new event...');
         const newEvent = await event.save();
         res.status(201).location(`/event/${newEvent._id}`).json(newEvent);
-    } catch (error : any) {
+    } catch (error: any) {
         console.error('Failed to create event...', error);
         res.sendStatus(400);
     }
@@ -113,7 +73,9 @@ router.delete("/:id", getEvent, async (req, res) => {
     }
 });
 
-async function getEvent(req : Request, res : Response, next: Function) {
+// ################################################
+
+async function getEvent(req: Request, res: Response, next: Function) {
     let event;
     if (!req.params.id || req.params.id.length !== 24) {
         console.log('Invalid event id...' + req.params.id);
@@ -125,6 +87,7 @@ async function getEvent(req : Request, res : Response, next: Function) {
             console.log('Event not found...' + req.params.id);
             return res.sendStatus(404);
         }
+        absolutizeImageUrlsForEvent(event);
         res.locals.event = event;
         next();
     } catch (error) {
@@ -132,4 +95,61 @@ async function getEvent(req : Request, res : Response, next: Function) {
         return res.sendStatus(500);
     }
 }
+
+async function getEvents(req: Request, res: Response, next: Function) {
+    const query: any = {};
+
+    // Date-Filter
+    if (req.query.from || req.query.to) {
+        query.date = {};
+        if (req.query.from) {
+            const fromDate = new Date(req.query.from as string);
+            if (isNaN(fromDate.getTime())) {
+                return res.sendStatus(400);
+            }
+            query.date.$gte = fromDate;
+        }
+        if (req.query.to) {
+            const toDate = new Date(req.query.to as string);
+            if (isNaN(toDate.getTime())) {
+                return res.sendStatus(400);
+            }
+            query.date.$lte = toDate;
+        }
+    }
+
+    // Tags-Filter
+    if (req.query.tags) {
+        let tags: string[] = [];
+        if (Array.isArray(req.query.tags)) {
+            tags = req.query.tags as string[];
+        } else if (typeof req.query.tags === "string") {
+            tags = (req.query.tags as string).split(",");
+        }
+        if (tags.length > 0) {
+            query.tags = {$all: tags};
+        }
+    }
+    console.log(req.query);
+    console.log(query);
+
+    try {
+        const eventArray = await Event.find(query);
+        eventArray.forEach(absolutizeImageUrlsForEvent);
+        res.locals.eventArray = eventArray;
+        next();
+    } catch (error: any) {
+        console.error('Failed to get all events...', error);
+        res.sendStatus(500);
+    }
+}
+
+function absolutizeImageUrlsForEvent(event: any) {
+    if (Array.isArray(event?.imageUrl)) {
+        event.imageUrl = event.imageUrl.map((url: string) =>
+            /^https?:\/\//i.test(url) ? url : BASE_IMAGE_URL + url
+        );
+    }
+}
+
 export default router;

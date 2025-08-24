@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 
 import eventRouter from "./routes/event";
+import imgRouter from "./routes/img";
 
 mongoose.connect('mongodb://localhost:27017/myapp')
     .then(() => {
@@ -18,6 +19,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/event', eventRouter);
+app.use('/img', imgRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
