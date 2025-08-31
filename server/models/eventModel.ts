@@ -5,8 +5,14 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    description : String,
-    location : String,
+    description : {
+        type: String,
+        required: true
+    },
+    location : {
+        type: String,
+        required: true
+    },
     date : {
         type: Date,
         required: true,

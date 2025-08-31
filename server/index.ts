@@ -5,12 +5,6 @@ import cors from 'cors';
 import eventRouter from "./routes/event";
 import imgRouter from "./routes/img";
 
-mongoose.connect('mongodb://localhost:27017/myapp')
-    .then(() => {
-      console.log('Connected to MongoDB')
-    })
-    .catch(err => console.error('Could not connect to MongoDB...\n sudo systemctl restart mongod \n', err));
-
 const app = express();
 const corsOptions = {
   origin: 'http://localhost:5173',
@@ -25,6 +19,15 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.listen(3000, () => {
+const server = app.listen(3000, () => {
   console.log("Server started on port 3000");
 });
+
+mongoose.connect('mongodb://localhost:27017/myapp')
+    .then(() => {
+        console.log('Connected to MongoDB')
+    })
+    .catch(err => {
+        console.error('Could not connect to MongoDB...\n sudo systemctl restart mongod \n', err)
+        server.close();
+    });
