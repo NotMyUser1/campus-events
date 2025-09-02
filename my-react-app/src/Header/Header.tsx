@@ -6,6 +6,7 @@ import Logo from "../svgs/dragon.svg?react";
 import Door from "../svgs/door.svg?react";
 import IconButton from "../IconButton/IconButton.tsx";
 import ThemeButton from "./ThemeButton/ThemeButton.tsx";
+import {Link} from "react-router";
 
 export default function Header() {
     const [position, setPosition] = useState(window.pageYOffset);
@@ -29,11 +30,13 @@ export default function Header() {
                     <IconButton icon={<MenuIcon className="MenuIcon" height="100%" width="100%"/>} label={""}
                                 onClick={() => {
                                 }}/>
-                    <Logo className="Logo" color="var(--button-background-color)"/>
-                        <ThemeButton/>
+                    <Link to='/'>
+                        <Logo className="Logo" color="var(--button-background-color)"/>
+                    </Link>
+                    <ThemeButton/>
                     <IconButton icon={<div className="Scene"><Door className="Door" height="100%" width="100%"/></div>}
                                 label={"Sign In"} onClick={() => {
-                                }}/>
+                    }}/>
                 </div>
             </header>
             <div className="header-filler"></div>

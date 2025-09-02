@@ -1,0 +1,26 @@
+.event-widget {
+    background-color: #535bf2;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.event-link {
+    text-decoration: none;
+    color: inherit;
+    margin: 10px;
+}
+
+.event-widget > img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .event-widget:hover {
+        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px);
+
+    }
+}

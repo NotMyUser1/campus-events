@@ -7,7 +7,7 @@ import imgRouter from "./routes/img";
 
 const app = express();
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origins: ['http://localhost:5173', 'http://localhost:4173'],
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
