@@ -1,5 +1,5 @@
 .event-widget {
-    background-color: #535bf2;
+    background-color: var(--foreground-color);
     border-radius: 8px;
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
