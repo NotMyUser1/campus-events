@@ -40,10 +40,10 @@
 }
 
 @media (max-width: 670px) {
-    .icon-button {
+    .box .icon-button {
         padding: 0.4rem 0.4rem;
     }
-    .icon-button-label {
+    .box .icon-button-label {
         display: none;
     }
 }

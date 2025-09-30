@@ -3,10 +3,10 @@ import {useEffect, useState} from "react";
 import './Header.css'
 import MenuIcon from "../svgs/menu.svg?react";
 import Logo from "../svgs/dragon.svg?react";
-import Door from "../svgs/door.svg?react";
 import IconButton from "../IconButton/IconButton.tsx";
 import ThemeButton from "./ThemeButton/ThemeButton.tsx";
 import {Link} from "react-router";
+import LoginButton from "./LoginButton/LoginButton.tsx";
 
 export default function Header() {
     const [position, setPosition] = useState(window.pageYOffset);
@@ -34,9 +34,7 @@ export default function Header() {
                         <Logo className="Logo" color="var(--button-background-color)"/>
                     </Link>
                     <ThemeButton/>
-                    <IconButton icon={<div className="Scene"><Door className="Door" height="100%" width="100%"/></div>}
-                                label={"Sign In"} onClick={() => {
-                    }}/>
+                    <LoginButton/>
                 </div>
             </header>
             <div className="header-filler"></div>

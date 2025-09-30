@@ -218,7 +218,7 @@ function patchEvent(req: Request, res: Response, next: Function) {
         res.locals.event.date = req.body.date;
     }
     if (req.body.imageUrl != null) {
-        res.locals.events.imageUrl = req.body.imageUrl;
+        res.locals.event.imageUrl = req.body.imageUrl;
     }
     if (req.body.tags != null) {
         res.locals.event.tags = req.body.tags;

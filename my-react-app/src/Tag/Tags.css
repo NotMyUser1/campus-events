@@ -1,0 +1,12 @@
+.event-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.event-tag {
+    background: hsl(from var(--foreground-color) h s calc(l + 10));
+    border-radius: 1rem;
+    padding: 0.2rem 0.8rem;
+    font-size: 1rem;
+}

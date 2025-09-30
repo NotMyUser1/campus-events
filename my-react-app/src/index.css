@@ -4,13 +4,14 @@
     box-sizing: border-box;
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
+    hyphens: auto;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 :root {
-    --foreground-color: #1414C8;
+    --foreground-color: #8FD3FE;
     --primary-text-color: black;
     --secondary-text-color: #7D7D7D;
     --button-background-color: #FFCF71;
@@ -27,8 +28,8 @@
 
 [data-theme="dark"] {
     background-image: url('./assets/black.png');
-    --foreground-color: #333333;
-    --primary-text-color: #7D7D7D;
+    --foreground-color: #3c6062;
+    --primary-text-color: #aaaaaa;
     --secondary-text-color: #535bf2;
     --button-background-color: red;
     --button-border-color: transparent;

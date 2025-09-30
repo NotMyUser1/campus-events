@@ -1,0 +1,12 @@
+.event-edit-form {
+    padding: 0 6%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.event-edit-form label {
+    display: flex;
+    flex-direction: column;
+}
